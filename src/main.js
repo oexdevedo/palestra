@@ -11,8 +11,12 @@ const defaultSlidesData = [
     theme: 'theme-good',
     slogan: 'Vencendo as Dívidas',
     html: `
-      <div class="editorial-panel" style="background-image: url('./assets/capa_vencendo_dividas.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #000000; width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); cursor: pointer;" onclick="document.getElementById('next-btn').click(); event.stopPropagation()">
-      </div>
+    <div class="editorial-panel" style="padding: 0; background-color: #000000; width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); cursor: pointer; overflow: hidden; display: flex; align-items: center; justify-content: center;" onclick="document.getElementById('next-btn').click(); event.stopPropagation()">
+      <video autoplay loop muted playsinline poster="./assets/capa_vencendo_dividas.png" style="width: 100%; height: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;">
+        <source src="./assets/abertura.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+      </video>
+    </div>
     `
   },
   // Slide 2
@@ -736,7 +740,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v3_cover_fix';
+const SLIDES_VERSION = 'v4_video_cover';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
