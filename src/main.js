@@ -62,7 +62,7 @@ const defaultSlidesData = [
         <div style="display: flex; flex-direction: column; gap: 20px; font-size: 1.5rem; color: var(--color-white);">
           <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">01.</span> Abertura & Apresentação</div>
           <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">02.</span> O Problema Estrutural</div>
-          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">03.</span> A Indústria da Dívida</div>
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">03.</span> Dívida</div>
           <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">04.</span> A Metodologia Ex Devedor</div>
           <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">05.</span> O Método V.I.D.A</div>
         </div>
@@ -872,7 +872,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v9_raiox_link';
+const SLIDES_VERSION = 'v10_index_fix';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
