@@ -1111,11 +1111,16 @@ function setupEvents() {
   prevBtn.addEventListener('click', prevSlide);
   nextBtn.addEventListener('click', nextSlide);
 
-  // Suporte a Teclado (Setas e Barra de Espaço)
+  // Suporte a Teclado e Passador de Slides (Apresentador)
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'Space') {
+    const nextKeys = ['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'];
+    const prevKeys = ['ArrowLeft', 'ArrowUp', 'PageUp'];
+    
+    if (nextKeys.includes(e.key)) {
+      e.preventDefault(); // Evita scroll da tela com PageDown/Space
       nextSlide();
-    } else if (e.key === 'ArrowLeft') {
+    } else if (prevKeys.includes(e.key)) {
+      e.preventDefault(); // Evita scroll da tela com PageUp
       prevSlide();
     }
   });
