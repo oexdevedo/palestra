@@ -704,7 +704,7 @@ body.bad-theme .ui-controls {
     -webkit-overflow-scrolling: touch;
   }
   .app-container {
-    padding: 10px 10px 85px 10px;
+    padding: 8px 8px 70px 8px;
     height: auto;
     min-height: 100vh;
     min-height: 100svh;
@@ -712,69 +712,111 @@ body.bad-theme .ui-controls {
   }
   .slides-wrapper {
     height: auto;
-    min-height: calc(100vh - 110px);
-    margin-bottom: 80px;
-    margin-top: 5px;
+    min-height: auto;
+    max-height: none;
+    margin-bottom: 10px;
+    margin-top: 4px;
   }
   .slide {
     position: relative;
     height: auto;
+    min-height: auto;
     transform: none !important;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
+
+  /* Paineis editoriais */
   .editorial-panel {
-    padding: 24px 16px;
+    padding: 22px 14px !important;
     justify-content: flex-start;
     border-radius: 6px;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow-y: visible;
   }
+
+  /* Imagens dentro dos slides */
   .editorial-panel img {
-    max-height: 240px !important;
+    max-height: 200px !important;
     width: 100% !important;
     object-fit: cover !important;
+    border-radius: 6px !important;
+  }
+
+  /* Video na capa */
+  .editorial-panel video {
+    max-height: 260px !important;
+    width: 100% !important;
+    object-fit: contain !important;
     border-radius: 6px !important;
   }
   
   /* Tipografia responsiva mobile */
   h1 {
-    font-size: clamp(2rem, 8.5vw, 3.6rem);
-    line-height: 1.05;
-    margin-bottom: 16px;
+    font-size: clamp(1.8rem, 7.5vw, 3rem) !important;
+    line-height: 1.08;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
   }
   h2 {
-    font-size: clamp(1.6rem, 6.5vw, 2.6rem);
-    margin-bottom: 12px;
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    margin-bottom: 10px;
+    line-height: 1.1;
   }
   h3 {
-    font-size: clamp(1.15rem, 4.5vw, 1.6rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.05rem, 4vw, 1.4rem) !important;
+    margin-bottom: 8px;
+    line-height: 1.2;
   }
   p, li {
-    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
-    line-height: 1.55;
+    font-size: clamp(0.88rem, 3.6vw, 1rem) !important;
+    line-height: 1.5;
     text-align: left;
+  }
+
+  /* Word Impact Panels */
+  .word-impact-panel {
+    padding-left: 5% !important;
+  }
+  .word-impact-panel h1 {
+    font-size: clamp(2.5rem, 10vw, 4.5rem) !important;
+    margin: 15px 0 !important;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+
+  /* Badges */
+  .cover-badge-sec {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
   }
   
   /* Flexibilizar grades editoriais para 1 coluna */
   .grid-2col, .grid-3col, .grid-asymmetric-right, .grid-editorial-split, .flip-grid, .budget-straight-container {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
-    gap: 14px;
+    gap: 12px;
+    height: auto !important;
   }
   
   .grid-editorial-split > :first-child {
     border-right: none;
     border-bottom: 1px solid var(--color-grey-medium);
     padding-right: 0;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
   }
   
   .grid-editorial-split > :last-child {
     padding-left: 0;
-    padding-top: 12px;
+    padding-top: 10px;
   }
   
+  /* Timeline horizontal -> vertical */
   .timeline-dashed-line {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
   .timeline-dashed-line::before {
     display: none;
@@ -782,22 +824,52 @@ body.bad-theme .ui-controls {
   .timeline-dashed-node {
     flex-direction: row;
     text-align: left;
-    gap: 14px;
+    gap: 12px;
+  }
+  .timeline-dashed-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+    flex-shrink: 0;
   }
 
+  /* QR Code */
   .qr-container-edit {
-    width: 170px;
-    height: 170px;
-    padding: 10px;
+    width: 150px;
+    height: 150px;
+    padding: 8px;
   }
 
+  /* Flip Cards */
   .flip-card {
     height: auto;
-    min-height: 190px;
+    min-height: 160px;
+  }
+  .flip-card-front, .flip-card-back {
+    padding: 18px !important;
+    position: relative;
+  }
+  .flip-card-back {
+    position: absolute;
   }
 
+  /* Budget blocks */
   .budget-percent-edit {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
+  }
+  .budget-block-editorial {
+    padding: 18px !important;
+  }
+
+  /* Card numbers (01, 02, 03) */
+  .card-num {
+    font-size: 2.5rem;
+  }
+
+  /* Editorial cards */
+  .editorial-card {
+    padding: 16px !important;
+    gap: 10px !important;
   }
   
   /* Controles UI Inferiores fixos para Mobile */
@@ -806,11 +878,11 @@ body.bad-theme .ui-controls {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(10, 11, 13, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 12px 16px;
-    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    background-color: rgba(10, 11, 13, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 10px 14px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--color-grey-medium);
     z-index: 100;
   }
@@ -818,39 +890,78 @@ body.bad-theme .ui-controls {
     display: none;
   }
   .ui-status {
-    gap: 8px;
+    gap: 6px;
   }
   .brand-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .ui-indicator {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
   .nav-btn {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
   .keyboard-helper {
     display: none;
   }
+
+  /* Poster cover on mobile */
+  .poster-footer {
+    bottom: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 480px) {
+  .app-container {
+    padding: 6px 6px 65px 6px;
+  }
   .editorial-panel {
-    padding: 18px 12px;
+    padding: 16px 10px !important;
+  }
+  .editorial-panel img {
+    max-height: 170px !important;
+  }
+  .editorial-panel video {
+    max-height: 220px !important;
+  }
+  h1 {
+    font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.35rem, 5.5vw, 2rem) !important;
+  }
+  .word-impact-panel h1 {
+    font-size: clamp(2rem, 9vw, 3.5rem) !important;
+    margin: 10px 0 !important;
   }
   .brand-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   .ui-indicator {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
   .editorial-card {
-    padding: 14px;
+    padding: 12px !important;
+  }
+  .budget-percent-edit {
+    font-size: 2rem;
+  }
+  .card-num {
+    font-size: 2rem;
+  }
+  .qr-container-edit {
+    width: 130px;
+    height: 130px;
+  }
+  .flip-card {
+    min-height: 140px;
   }
 }
 
