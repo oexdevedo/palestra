@@ -861,7 +861,7 @@ const defaultSlidesData = [
           <div class="editorial-card" style="padding: 30px; gap: 12px; align-items: flex-start;">
             <h3 style="margin-bottom: 10px;">LINKS ÚTEIS</h3>
             <div style="display: flex; flex-direction: column; gap: 12px;">
-              <a href="#" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">➜ Fazer o Raio X</a>
+              <a href="https://raiox.exdevedor.com/" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">➜ Fazer o Raio X</a>
               <a href="https://wa.me/message/OEO7TXGUSIDJL1" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">➜ Chamar no WhatsApp</a>
             </div>
           </div>
@@ -872,7 +872,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v8_links_uteis';
+const SLIDES_VERSION = 'v9_raiox_link';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
