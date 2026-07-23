@@ -11,7 +11,7 @@ const defaultSlidesData = [
     theme: 'theme-good',
     slogan: 'Vencendo as Dívidas',
     html: `
-      <div class="editorial-panel" style="background-image: url('/src/assets/capa_vencendo_dividas.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #000000; width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); cursor: pointer;" onclick="document.getElementById('next-btn').click(); event.stopPropagation()">
+      <div class="editorial-panel" style="background-image: url('./assets/capa_vencendo_dividas.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #000000; width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); cursor: pointer;" onclick="document.getElementById('next-btn').click(); event.stopPropagation()">
       </div>
     `
   },
@@ -713,7 +713,7 @@ const defaultSlidesData = [
       <div class="editorial-panel" style="gap: 30px; text-align: left; padding: 60px;">
         <div>
           <span class="cover-badge-sec">Rede de Contatos</span>
-          <h2>FAÇA PARTE DA COMUNIDADE</h2>
+          <h2>Contatos</h2>
           <p style="color: var(--color-grey-text); margin-top: 5px; margin-bottom: 0;">Abaixo estão os canais oficiais para você continuar acompanhando materiais práticos e dicas comportamentais:</p>
         </div>
         <div class="grid-3col">
@@ -736,12 +736,16 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
+const SLIDES_VERSION = 'v3_cover_fix';
 try {
+  const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
-  if (saved) {
+  if (saved && savedVersion === SLIDES_VERSION) {
     slidesData = JSON.parse(saved);
   } else {
     slidesData = JSON.parse(JSON.stringify(defaultSlidesData));
+    localStorage.setItem('exdevedor_slides', JSON.stringify(slidesData));
+    localStorage.setItem('exdevedor_slides_version', SLIDES_VERSION);
   }
 } catch (e) {
   slidesData = JSON.parse(JSON.stringify(defaultSlidesData));
