@@ -114,12 +114,17 @@ const defaultSlidesData = [
     theme: 'theme-good',
     slogan: 'O único pilar indispensável',
     html: `
-      <div class="editorial-panel word-impact-panel" style="padding-left: 10%; gap: 25px;">
-        <span class="cover-badge-sec">O único pilar</span>
-        <h1 class="highlight-yellow" style="margin: 0;">DISCIPLINA</h1>
-        <p style="font-size: 1.35rem; max-width: 750px; color: var(--color-white); line-height: 1.7;">
-          Fazer o que precisa ser feito, na hora certa, do jeito que tem que ser feito. Principalmente nos dias em que você não tem a menor vontade de fazer.
-        </p>
+      <div class="grid-editorial-split editorial-panel">
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 25px;">
+          <span class="cover-badge-sec">O único pilar</span>
+          <h1 class="highlight-yellow" style="margin: 0; font-size: clamp(3rem, 6vw, 5.5rem);">DISCIPLINA</h1>
+          <p style="font-size: 1.3rem; color: var(--color-white); line-height: 1.7;">
+            Fazer o que precisa ser feito, na hora certa, do jeito que tem que ser feito. Principalmente nos dias em que você não tem a menor vontade de fazer.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/slide_discipline.png" alt="Disciplina e foco" style="width: 100%; max-height: 480px; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);" />
+        </div>
       </div>
     `
   },
@@ -185,21 +190,24 @@ const defaultSlidesData = [
     theme: 'theme-good',
     slogan: 'O foco da sua motivação',
     html: `
-      <div class="grid-2col">
-        <div class="editorial-panel" style="gap: 30px;">
+      <div class="grid-editorial-split editorial-panel">
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
           <div>
             <span class="cover-badge-sec">A Mira</span>
             <h2 style="margin-top: 10px;">FUTURO: O SEU ALVO</h2>
           </div>
           <h3>Qual o seu maior sonho hoje?</h3>
-          <p style="color: var(--color-grey-text); line-height: 1.7;">
-            Organização financeira não serve apenas para guardar dinheiro no banco. Serve para dar sustentação a sonhos reais e concretos:
+          <p style="color: var(--color-grey-text); line-height: 1.6; font-size: 1.1rem; margin: 0;">
+            Organização financeira serve para dar sustentação a sonhos reais e concretos:
           </p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="editorial-card" style="padding: 16px;"><span class="highlight-yellow" style="font-weight:700;">Moradia</span> Conquistar ou reformar sua casa.</div>
+            <div class="editorial-card" style="padding: 16px;"><span class="highlight-yellow" style="font-weight:700;">Viagem</span> Conhecer o mundo com quem ama.</div>
+            <div class="editorial-card" style="padding: 16px;"><span class="highlight-yellow" style="font-weight:700;">Liberdade</span> Dormir em paz sem dever a ninguém.</div>
+          </div>
         </div>
-        <div class="editorial-panel" style="gap: 20px;">
-          <div class="editorial-card" style="padding: 24px;"><span class="highlight-yellow" style="font-weight:700;">Moradia</span> Conquistar ou reformar sua casa de forma sustentável.</div>
-          <div class="editorial-card" style="padding: 24px;"><span class="highlight-yellow" style="font-weight:700;">Viagem</span> Experimentar o mundo com as pessoas que ama sem parcelar no cartão.</div>
-          <div class="editorial-card" style="padding: 24px;"><span class="highlight-yellow" style="font-weight:700;">Liberdade</span> Dormir a noite inteira em paz sabendo que não deve nada a ninguém.</div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/slide_target_dreams.png" alt="O Alvo do Futuro" style="width: 100%; max-height: 480px; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);" />
         </div>
       </div>
     `
@@ -264,19 +272,19 @@ const defaultSlidesData = [
     slogan: 'A moeda mais preciosa da sua vida',
     html: `
       <div class="grid-editorial-split editorial-panel">
-        <div style="display: flex; flex-direction: column; justify-content: center; gap: 30px;">
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 25px;">
           <div>
             <span class="cover-badge-sec highlight-red">Metáfora do Tempo</span>
-            <h2 class="highlight-red" style="margin-top: 15px;">DINHEIRO</h2>
-            <h2 class="highlight-red" style="margin-top: 15px;">É O SEU TEMPO</h2>
-
+            <h2 class="highlight-red" style="margin-top: 15px;">DINHEIRO É O SEU TEMPO</h2>
           </div>
           <h3>Tempo que você vende quando trabalha.</h3>
+          <div style="background-color: rgba(230,26,41,0.05); border-radius: 6px; border: 1px solid rgba(230,26,41,0.2); padding: 25px; gap: 15px; display: flex; flex-direction: column;">
+            <div style="font-family: var(--font-family-title); font-size: 1.8rem; font-weight: 700; letter-spacing: 2px;" class="highlight-red">LIMITADO & DEFINITIVO</div>
+            <p style="font-size: 1.1rem; color: var(--color-white); line-height: 1.6; margin: 0;">Gastar mal o seu dinheiro é desperdiçar o tempo de vida que você vendeu para ganhá-lo.</p>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: rgba(230,26,41,0.03); border-radius: 4px; border: 1px solid rgba(230,26,41,0.15); padding: 40px; text-align: center; gap: 20px;">
-          <div style="font-family: var(--font-family-title); font-size: 2.2rem; font-weight: 700; letter-spacing: 2px;">LIMITADO</div>
-          <h3 class="highlight-red" style="margin: 0;">A Troca é Definitiva</h3>
-          <p style="font-size: 1.05rem; color: var(--color-white); line-height: 1.6; margin: 0;">Gastar mal o seu dinheiro é cuspir no tempo de vida que você gastou para ganhá-lo.</p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/slide_hourglass.png" alt="Ampulheta - Metáfora do Tempo" style="width: 100%; max-height: 480px; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,215,0,0.2);" />
         </div>
       </div>
     `
@@ -382,12 +390,17 @@ const defaultSlidesData = [
     theme: 'theme-good',
     slogan: 'A decisão consistente',
     html: `
-      <div class="editorial-panel" style="text-align: left; justify-content: center; padding-left: 8%; gap: 30px;">
-        <span class="cover-badge-sec">A Decisão Consistente</span>
-        <h1 class="highlight-yellow" style="font-size: clamp(3rem, 7vw, 6rem); margin: 0;">PARA QUEBRAR O CICLO</h1>
-        <h3 style="max-width: 800px; color: var(--color-white); line-height: 1.3; margin: 0;">
-          A história de desorganização, boletos atrasados e escassez familiar termina na sua geração. A partir de hoje, você escreve o seu próprio caminho.
-        </h3>
+      <div class="grid-editorial-split editorial-panel">
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 25px;">
+          <span class="cover-badge-sec">A Decisão Consistente</span>
+          <h1 class="highlight-yellow" style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 0;">PARA QUEBRAR O CICLO</h1>
+          <h3 style="color: var(--color-white); line-height: 1.4; margin: 0; font-size: 1.35rem;">
+            A história de desorganização, boletos atrasados e escassez familiar termina na sua geração. A partir de hoje, você escreve o seu próprio caminho.
+          </h3>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/slide_breaking_chains.png" alt="Quebrando o Ciclo" style="width: 100%; max-height: 480px; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,215,0,0.2);" />
+        </div>
       </div>
     `
   },
