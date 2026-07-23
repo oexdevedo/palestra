@@ -710,7 +710,7 @@ const defaultSlidesData = [
           </div>
           <div class="editorial-card" style="padding: 30px; gap: 12px; align-items: flex-start;">
             <h3 style="margin-bottom: 5px;">SITE</h3>
-            <a href="https://exdevedor.online" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">exdevedor.online</a>
+            <a href="https://exdevedor.com" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">exdevedor.com</a>
           </div>
           <div class="editorial-card" style="padding: 30px; gap: 12px; align-items: flex-start;">
             <h3 style="margin-bottom: 5px;">CONTATO</h3>

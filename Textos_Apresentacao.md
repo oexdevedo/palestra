@@ -366,7 +366,7 @@ Abaixo estão os canais oficiais para você continuar acompanhando materiais pr�
 INSTAGRAM
 @ExDevedor
 SITE
-exdevedor.online
+exdevedor.com
 CONTATO
 contato@exdevedor.com
 

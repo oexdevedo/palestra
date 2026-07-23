@@ -449,7 +449,7 @@ gantt
     a ela, realizei muitos sonhos e desejos.
     É exatamente isso que desejo para você hoje.
     
-    @ExDevedor
+    @ExDevedor | exdevedor.com
     ```
 *   **Notas Visuais:** Slide de encerramento impactante. Logotipo EX DEVEDOR bem visível, dados de contato e redes sociais no rodapé. Fundo escuro com letras laranja e amarelo.
 *   **Orientação de Linguagem Corporal:** Fique estático no centro do palco. Fale com emoção verdadeira e gratidão. Agradeça com uma reverência simples e aguarde os aplausos.
