@@ -49,9 +49,140 @@ const defaultSlidesData = [
       </div>
     `
   },
-  // Slide 3
+
+  // Slide 3 - Índice
   {
     id: 3,
+    theme: 'theme-good',
+    slogan: 'Nossa Jornada',
+    html: `
+      <div class="editorial-panel" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <span class="cover-badge-sec">Estrutura da Palestra</span>
+        <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin: 20px 0 40px 0;">ÍNDICE</h1>
+        <div style="display: flex; flex-direction: column; gap: 20px; font-size: 1.5rem; color: var(--color-white);">
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">01.</span> Abertura & Apresentação</div>
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">02.</span> O Problema Estrutural</div>
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">03.</span> A Indústria da Dívida</div>
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">04.</span> A Metodologia Ex Devedor</div>
+          <div style="display: flex; align-items: center; gap: 20px;"><span class="highlight-yellow" style="font-weight: bold; font-family: var(--font-family-title); font-size: 2rem;">05.</span> O Método V.I.D.A</div>
+        </div>
+      </div>
+    `
+  },
+  // Slide 4 - Quem sou eu
+  {
+    id: 4,
+    theme: 'theme-good',
+    slogan: 'Minha História',
+    html: `
+      <div class="grid-editorial-split editorial-panel" style="padding: 0; background: var(--color-white); overflow: hidden; border-radius: 8px;">
+        <div style="background-color: #551122; background-image: url('./assets/quem_sou_eu_placeholder.jpg'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="position: absolute; bottom: 20px; left: 20px; color: white; opacity: 0.5; font-size: 0.8rem;">[Adicione sua foto: public/assets/quem_sou_eu.jpg]</div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center; padding: 40px; gap: 30px; background-color: var(--color-white);">
+          <h2 style="color: var(--color-dark); font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; margin-bottom: 20px;">Quem sou eu</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background-color: #e5e7eb; padding: 30px; border-radius: 8px; text-align: center;">
+              <h3 style="color: #4b5563; font-size: 1.3rem; margin-bottom: 10px;">Mais de 11<br>empréstimos ativos</h3>
+              <p style="color: #6b7280; font-size: 1rem; line-height: 1.5;">Sem controle sobre<br>o próprio dinheiro</p>
+            </div>
+            
+            <div style="background-color: #e5e7eb; padding: 30px; border-radius: 8px; text-align: center;">
+              <h3 style="color: #4b5563; font-size: 1.3rem; margin-bottom: 10px;">Salário comprometido</h3>
+              <p style="color: #6b7280; font-size: 1rem; line-height: 1.5;">Descontos múltiplos deixavam<br>conta vazia</p>
+            </div>
+          </div>
+
+          <div style="background-color: #e5e7eb; padding: 30px; border-radius: 8px; text-align: center;">
+            <h3 style="color: #4b5563; font-size: 1.3rem; margin-bottom: 10px;">Experiência real</h3>
+            <p style="color: #6b7280; font-size: 1rem; line-height: 1.5;">Vivido na pele, não teoria distante</p>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  // Slide 5 - A Ex Devedor
+  {
+    id: 5,
+    theme: 'theme-good',
+    slogan: 'Nossa Evolução',
+    html: `
+      <div class="grid-editorial-split editorial-panel" style="gap: 40px;">
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 60px; height: 60px; background-color: var(--color-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👨🏽‍💻</div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem);">A Ex Devedor</h2>
+            </div>
+            <div style="background-image: url('./assets/a_ex_devedor_placeholder.jpg'); background-size: cover; background-position: center; border-radius: 8px; flex-grow: 1; min-height: 300px; background-color: #223344; display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="position: absolute; bottom: 20px; left: 20px; color: white; opacity: 0.5; font-size: 0.8rem;">[Adicione sua foto: public/assets/a_ex_devedor.jpg]</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0; position: relative;">
+            <!-- Linha da timeline -->
+            <div style="position: absolute; left: 50%; top: 20px; bottom: 20px; width: 2px; background-color: rgba(255,255,255,0.2); transform: translateX(-50%); z-index: 1;"></div>
+            
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1; text-align: right; padding-right: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2022</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">Podcast de áudio</div>
+                </div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">1</div>
+                <div style="flex: 1;"></div>
+            </div>
+            
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1;"></div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">2</div>
+                <div style="flex: 1; padding-left: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2023</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">3º lugar Maratona de Negócios - CCBS</div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1; text-align: right; padding-right: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2023</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">1º Lugar Hackcity</div>
+                </div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">3</div>
+                <div style="flex: 1;"></div>
+            </div>
+
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1;"></div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">4</div>
+                <div style="flex: 1; padding-left: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2024</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">Prêmio Candango de Inovação<br>Reconhecimento Câmara Distral</div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1; text-align: right; padding-right: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2025</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">1º Lugar Startup Day Sebrae<br>Top 5 ExpoFavela BSB</div>
+                </div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">5</div>
+                <div style="flex: 1;"></div>
+            </div>
+
+            <div class="timeline-item" style="display: flex; align-items: center; position: relative; z-index: 2;">
+                <div style="flex: 1;"></div>
+                <div style="width: 40px; height: 40px; background-color: #e5e7eb; color: var(--color-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: var(--font-family-title); box-shadow: 0 0 0 5px var(--color-dark);">6</div>
+                <div style="flex: 1; padding-left: 40px;">
+                    <div style="font-weight: bold; font-family: var(--font-family-title); font-size: 1.2rem;">2025</div>
+                    <div style="color: var(--color-grey-light); font-size: 0.9rem;">Finalista BBW<br>Top 20 Ex Favela Nacional</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    `
+  },
+  // Slide 3
+  {
+    id: 6,
     theme: 'theme-bad',
     slogan: 'Um problema nacional estrutural',
     html: `
@@ -67,7 +198,7 @@ const defaultSlidesData = [
   },
   // Slide 4
   {
-    id: 4,
+    id: 7,
     theme: 'theme-bad',
     slogan: 'A ilusão da facilidade',
     html: `
@@ -89,7 +220,7 @@ const defaultSlidesData = [
   },
   // Slide 5
   {
-    id: 5,
+    id: 8,
     theme: 'theme-good',
     slogan: 'Didática, simplicidade e prática',
     html: `
@@ -114,7 +245,7 @@ const defaultSlidesData = [
   },
   // Slide 6
   {
-    id: 6,
+    id: 9,
     theme: 'theme-good',
     slogan: 'O único pilar indispensável',
     html: `
@@ -134,7 +265,7 @@ const defaultSlidesData = [
   },
   // Slide 7
   {
-    id: 7,
+    id: 10,
     theme: 'theme-bad',
     slogan: 'Sem desculpas',
     html: `
@@ -149,7 +280,7 @@ const defaultSlidesData = [
   },
   // Slide 8
   {
-    id: 8,
+    id: 11,
     theme: 'theme-good',
     slogan: 'Preparando a sua mente para a vitória',
     html: `
@@ -190,7 +321,7 @@ const defaultSlidesData = [
   },
   // Slide 9
   {
-    id: 9,
+    id: 12,
     theme: 'theme-good',
     slogan: 'O foco da sua motivação',
     html: `
@@ -218,7 +349,7 @@ const defaultSlidesData = [
   },
   // Slide 10
   {
-    id: 10,
+    id: 13,
     theme: 'theme-good',
     slogan: 'Dinheiro trabalha para você, não o contrário',
     html: `
@@ -233,7 +364,7 @@ const defaultSlidesData = [
   },
   // Slide 11
   {
-    id: 11,
+    id: 14,
     theme: 'theme-bad',
     slogan: 'Autodiagnóstico realista',
     html: `
@@ -258,7 +389,7 @@ const defaultSlidesData = [
   },
   // Slide 12
   {
-    id: 12,
+    id: 15,
     theme: 'theme-good',
     slogan: 'Fugindo do senso comum',
     html: `
@@ -271,7 +402,7 @@ const defaultSlidesData = [
   },
   // Slide 13
   {
-    id: 13,
+    id: 16,
     theme: 'theme-bad',
     slogan: 'A moeda mais preciosa da sua vida',
     html: `
@@ -295,7 +426,7 @@ const defaultSlidesData = [
   },
   // Slide 14
   {
-    id: 14,
+    id: 17,
     theme: 'theme-good',
     slogan: 'Valorize a sua hora',
     html: `
@@ -311,7 +442,7 @@ const defaultSlidesData = [
   },
   // Slide 15
   {
-    id: 15,
+    id: 18,
     theme: 'theme-good',
     slogan: 'Uma lição de dignidade e história',
     html: `
@@ -326,7 +457,7 @@ const defaultSlidesData = [
   },
   // Slide 16
   {
-    id: 16,
+    id: 19,
     theme: 'theme-bad',
     slogan: 'O veneno parcelado',
     html: `
@@ -354,7 +485,7 @@ const defaultSlidesData = [
   },
   // Slide 17
   {
-    id: 17,
+    id: 20,
     theme: 'theme-good',
     slogan: 'Escavando os alicerces',
     html: `
@@ -370,7 +501,7 @@ const defaultSlidesData = [
   },
   // Slide 18
   {
-    id: 18,
+    id: 21,
     theme: 'theme-bad',
     slogan: 'As barreiras herdadas',
     html: `
@@ -390,7 +521,7 @@ const defaultSlidesData = [
   },
   // Slide 19
   {
-    id: 19,
+    id: 22,
     theme: 'theme-good',
     slogan: 'A decisão consistente',
     html: `
@@ -410,7 +541,7 @@ const defaultSlidesData = [
   },
   // Slide 20
   {
-    id: 20,
+    id: 23,
     theme: 'theme-good',
     slogan: 'A nova programação do comportamento',
     html: `
@@ -425,7 +556,7 @@ const defaultSlidesData = [
   },
   // Slide 21
   {
-    id: 21,
+    id: 24,
     theme: 'theme-bad',
     slogan: 'Identificando o inimigo mental',
     html: `
@@ -454,7 +585,7 @@ const defaultSlidesData = [
   },
   // Slide 22
   {
-    id: 22,
+    id: 25,
     theme: 'theme-good',
     slogan: 'Clique nos cards para virar e aprender',
     html: `
@@ -507,7 +638,7 @@ const defaultSlidesData = [
   },
   // Slide 23
   {
-    id: 23,
+    id: 26,
     theme: 'theme-good',
     slogan: 'A ordem da estabilização',
     html: `
@@ -538,7 +669,7 @@ const defaultSlidesData = [
   },
   // Slide 24
   {
-    id: 24,
+    id: 27,
     theme: 'theme-good',
     slogan: 'Limites geram liberdade real',
     html: `
@@ -585,7 +716,7 @@ const defaultSlidesData = [
   },
   // Slide 25
   {
-    id: 25,
+    id: 28,
     theme: 'theme-good',
     slogan: 'Comer, morar, vestir e desfrutar',
     html: `
@@ -615,7 +746,7 @@ const defaultSlidesData = [
   },
   // Slide 26
   {
-    id: 26,
+    id: 29,
     theme: 'theme-bad',
     slogan: 'O custo das escolhas antigas',
     html: `
@@ -633,7 +764,7 @@ const defaultSlidesData = [
   },
   // Slide 27
   {
-    id: 27,
+    id: 30,
     theme: 'theme-good',
     slogan: 'O seu seguro de liberdade',
     html: `
@@ -663,7 +794,7 @@ const defaultSlidesData = [
   },
   // Slide 28
   {
-    id: 28,
+    id: 31,
     theme: 'theme-good',
     slogan: 'A triade da execução',
     html: `
@@ -695,7 +826,7 @@ const defaultSlidesData = [
   },
   // Slide 29
   {
-    id: 29,
+    id: 32,
     theme: 'theme-good',
     slogan: 'Você tomou a decisão de mudar de vida',
     html: `
@@ -710,7 +841,7 @@ const defaultSlidesData = [
   },
   // Slide 30
   {
-    id: 30,
+    id: 33,
     theme: 'theme-good',
     slogan: 'Vencendo os boletos, comprando o tempo',
     html: `
@@ -740,7 +871,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v5_mobile_centered';
+const SLIDES_VERSION = 'v6_add_history_slides';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
@@ -800,7 +931,7 @@ let currentSlideIndex = getSavedSlideIndex();
 // ==========================================================================
 
 // Slides com pouco conteúdo que devem ficar centralizados no mobile
-const centeredSlides = new Set([1, 3, 4, 7, 10, 12, 14, 15, 17, 18, 20, 26, 29]);
+const centeredSlides = new Set([1, 3, 6, 7, 10, 13, 15, 17, 18, 20, 21, 23, 29, 32]);
 
 function initSlides() {
   totalSlidesNum.textContent = String(slidesData.length).padStart(2, '0');
