@@ -740,7 +740,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v4_video_cover';
+const SLIDES_VERSION = 'v5_mobile_centered';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
@@ -798,6 +798,10 @@ let currentSlideIndex = getSavedSlideIndex();
 // ==========================================================================
 // INICIALIZAÇÃO E MONTAGEM DOS SLIDES
 // ==========================================================================
+
+// Slides com pouco conteúdo que devem ficar centralizados no mobile
+const centeredSlides = new Set([1, 3, 4, 7, 10, 12, 14, 15, 17, 18, 20, 26, 29]);
+
 function initSlides() {
   totalSlidesNum.textContent = String(slidesData.length).padStart(2, '0');
 
@@ -806,6 +810,12 @@ function initSlides() {
     const slideEl = document.createElement('section');
     slideEl.className = `slide ${slide.theme} slide-index-${idx}`;
     slideEl.id = `slide-id-${slide.id}`;
+
+    // Centraliza slides com pouco conteúdo no mobile
+    if (centeredSlides.has(slide.id)) {
+      slideEl.classList.add('slide-centered');
+    }
+
     slideEl.innerHTML = slide.html;
     
     if (idx === currentSlideIndex) {
