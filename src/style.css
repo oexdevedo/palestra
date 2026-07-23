@@ -1,0 +1,886 @@
+/* ==========================================================================
+   DESIGN SYSTEM & VARIABLES (Estilo Nike / MINWOT)
+   ========================================================================== */
+:root {
+  /* Paleta cromática oficial e de alto impacto */
+  --color-black: #000000;
+  --color-matte-black: #0a0b0d;
+  --color-grey-dark: #121418;
+  --color-grey-medium: #1f2228;
+  --color-grey-light: #525a66;
+  --color-grey-text: #9fa6b2;
+  --color-white: #ffffff;
+  
+  /* Cores de Destaque */
+  --color-neon-yellow: #d4ff00;   /* Representação de coisas BOAS (Good) */
+  --color-orange: #dfa83f;        /* Renda extra e destaques secundários */
+  --color-crimson-red: #e61a29;   /* Representação de coisas RUINS (Bad) */
+  
+  /* Fontes de Destaque e Leitura */
+  --font-family-title: 'Oswald', 'Anton', sans-serif;
+  --font-family-body: 'Inter', -apple-system, sans-serif;
+
+  /* Transições Secas e Rápidas */
+  --transition-editorial: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+  --transition-fast: all 0.15s ease-out;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-matte-black);
+  color: var(--color-grey-text);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+  transition: background-color 0.4s ease;
+}
+
+body.bad-theme {
+  background-color: var(--color-black);
+}
+
+/* ==========================================================================
+   LAYOUT GERAL
+   ========================================================================== */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  padding: 30px;
+}
+
+/* Barra de Progresso superior (Estilo Nike) */
+.progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-grey-medium);
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 3%;
+  background: var(--color-neon-yellow);
+  box-shadow: 0 0 10px rgba(212, 255, 0, 0.6);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body.bad-theme .progress-bar {
+  background: var(--color-crimson-red);
+  box-shadow: 0 0 10px rgba(230, 26, 41, 0.6);
+}
+
+/* Container de Slides */
+.slides-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  height: 100%;
+  max-height: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================================================
+   ESTILO EDITORIAL DOS SLIDES
+   ========================================================================== */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(40px) scale(0.99);
+  transition: var(--transition-editorial);
+}
+
+.slide.active {
+  display: grid;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Painéis Editoriais (Grid Seca e Sem Glassmorphism) */
+.editorial-panel {
+  background-color: var(--color-grey-dark);
+  border: 1px solid var(--color-grey-medium);
+  border-radius: 8px; /* Bordas retas e limpas */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Slide Good: Tema Neon */
+.slide.theme-good .editorial-panel {
+  background-color: #0b0c0f;
+  border-color: #1a1c22;
+}
+
+/* Slide Bad: Tema Preto Absoluto e Tensão */
+.slide.theme-bad .editorial-panel {
+  background-color: #050505;
+  border-color: rgba(230, 26, 41, 0.15);
+}
+
+/* ==========================================================================
+   TIPOGRAFIA DE ALTO IMPACTO (OSWALD)
+   ========================================================================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-family-title);
+  color: var(--color-white);
+  line-height: 1.1; /* Relaxed for better visual readability */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+}
+
+h1 {
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  letter-spacing: -1px;
+  line-height: calc(1.02em + 3px);
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  letter-spacing: -0.5px;
+  line-height: calc(1.05em + 3px);
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  line-height: calc(1.1em + 3px);
+  margin-bottom: 12px;
+}
+
+h4 {
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  line-height: calc(1.15em + 3px);
+}
+
+p {
+  font-family: var(--font-family-body);
+  line-height: 1.65; /* Elegant vertical spacing for reading */
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  text-align: justify; /* Justified paragraphs */
+  text-justify: inter-word;
+  margin-bottom: 16px;
+}
+
+li {
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+span {
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+}
+
+/* Destaques de Cor */
+.highlight-yellow {
+  color: var(--color-neon-yellow);
+}
+
+.highlight-orange {
+  color: var(--color-orange);
+}
+
+.highlight-red {
+  color: var(--color-crimson-red);
+}
+
+.highlight-gray {
+  color: var(--color-grey-light);
+}
+
+.highlight-white {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   GRIDS EDITORIAIS & BENTO SECO
+   ========================================================================== */
+
+/* Colunas Simples */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-asymmetric-right {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Grid com Linha Divisória Fina */
+.grid-editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-editorial-split > :first-child {
+  border-right: 1px solid var(--color-grey-medium);
+  padding-right: 40px;
+}
+
+.grid-editorial-split > :last-child {
+  padding-left: 40px;
+}
+
+body.bad-theme .grid-editorial-split > :first-child {
+  border-right-color: rgba(230, 26, 41, 0.1);
+}
+
+/* Card Editorial */
+.editorial-card {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-grey-medium);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+  transition: var(--transition-fast);
+}
+
+.editorial-card:hover {
+  border-color: var(--color-grey-light);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.theme-bad .editorial-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-bad .editorial-card:hover {
+  border-color: var(--color-crimson-red);
+}
+
+/* Número Gigante para Tópicos (Estilo Nike) */
+.card-num {
+  font-family: var(--font-family-title);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-grey-light);
+}
+
+.theme-good .editorial-card:hover .card-num {
+  color: var(--color-neon-yellow);
+}
+
+/* ==========================================================================
+   SLIDES DE IMPACTO DE PALAVRAS (WORD IMPACT)
+   ========================================================================== */
+.slide-word-impact {
+  grid-template-columns: 1fr;
+}
+
+.word-impact-panel {
+  text-align: left;
+  justify-content: center;
+  position: relative;
+}
+
+.word-impact-panel h1 {
+  font-size: clamp(4.5rem, 11vw, 10rem);
+  font-weight: 700;
+  line-height: 1.05; /* Relaxed for visual breathing room and elegance */
+  letter-spacing: -2px;
+  margin: 30px 0;
+}
+
+.cover-badge-sec {
+  font-family: var(--font-family-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--color-neon-yellow);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   ELEMENTOS ESPECÍFICOS DE SLIDES
+   ========================================================================== */
+
+/* QR Code */
+.qr-container-edit {
+  background-color: var(--color-white);
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+}
+.qr-container-edit canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Timeline/Jornada */
+.timeline-dashed-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+.timeline-dashed-line {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  gap: 15px;
+}
+.timeline-dashed-line::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
+.timeline-dashed-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  gap: 12px;
+}
+.timeline-dashed-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-grey-dark);
+  border: 2px solid var(--color-grey-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-title);
+  font-size: 1.1rem;
+  color: var(--color-grey-light);
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+.timeline-dashed-node.active .timeline-dashed-circle {
+  background-color: var(--color-neon-yellow);
+  border-color: var(--color-neon-yellow);
+  color: var(--color-black);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.4);
+}
+.timeline-dashed-node.active .step-label {
+  color: var(--color-white);
+}
+
+/* Flip Cards (Menu Interativo) */
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.flip-card {
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  border: 1px solid var(--color-grey-medium);
+}
+.flip-card-front {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.flip-card-front:hover {
+  border-color: var(--color-neon-yellow);
+}
+.flip-card-back {
+  background-color: var(--color-grey-dark);
+  border-color: var(--color-neon-yellow);
+  transform: rotateY(180deg);
+}
+
+/* Orçamentos em Barras Retas (Limite 60/30/10) */
+.budget-straight-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+}
+.budget-block-editorial {
+  border: 1px solid var(--color-grey-medium);
+  border-radius: 4px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.02);
+  gap: 20px;
+}
+.budget-block-editorial.bad {
+  border-color: rgba(230, 26, 41, 0.2);
+}
+.budget-fill-flat {
+  height: 14px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.budget-fill-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--color-neon-yellow);
+  width: 0%;
+  transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.budget-block-editorial.bad .budget-fill-bar {
+  background-color: var(--color-crimson-red);
+}
+.budget-block-editorial.neutral .budget-fill-bar {
+  background-color: var(--color-orange);
+}
+.budget-percent-edit {
+  font-family: var(--font-family-title);
+  font-size: 3.8rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   UI CONTROLS OVERLAY (ESTILO EDITORIAL)
+   ========================================================================== */
+.ui-controls {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 5;
+  border-top: 1px solid var(--color-grey-medium);
+  padding-top: 20px;
+}
+
+body.bad-theme .ui-controls {
+  border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.ui-controls > * {
+  pointer-events: auto;
+}
+
+.ui-status {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.brand-text {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+.slide-slogan {
+  font-size: 0.85rem;
+  color: var(--color-grey-light);
+  border-left: 1px solid var(--color-grey-medium);
+  padding-left: 15px;
+  font-weight: 500;
+}
+
+.ui-indicator {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+}
+.ui-indicator .separator {
+  color: var(--color-grey-light);
+  font-weight: 400;
+}
+
+.ui-nav {
+  display: flex;
+  gap: 8px;
+}
+.nav-btn {
+  background-color: transparent;
+  border: 1px solid var(--color-grey-medium);
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.nav-btn:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+.nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.nav-btn:disabled:hover {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-grey-medium);
+}
+
+/* Keyboard helper floating box */
+.keyboard-helper {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: var(--color-grey-dark);
+  border: 1px solid var(--color-grey-medium);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-grey-text);
+  animation: fade-slide-in 0.4s ease-out both;
+}
+.keyboard-helper kbd {
+  background-color: var(--color-grey-medium);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 2px;
+  padding: 1px 4px;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--color-white);
+}
+.close-helper {
+  background: none;
+  border: none;
+  color: var(--color-grey-light);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+.close-helper:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   ANIMATIONS & TRANSITIONS
+   ========================================================================== */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrada dos cards de bento */
+.slide.active .editorial-card, .slide.active .editorial-panel {
+  animation: slide-right-in 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.slide.active .grid-3col > :nth-child(1) { animation-delay: 0.05s; }
+.slide.active .grid-3col > :nth-child(2) { animation-delay: 0.12s; }
+.slide.active .grid-3col > :nth-child(3) { animation-delay: 0.18s; }
+
+.slide.active .grid-2col > :nth-child(1) { animation-delay: 0.05s; }
+.slide.active .grid-2col > :nth-child(2) { animation-delay: 0.12s; }
+
+@keyframes slide-right-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 900px) {
+  body {
+    overflow-y: auto;
+  }
+  .app-container {
+    padding: 16px;
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+  }
+  .slides-wrapper {
+    height: auto;
+    min-height: calc(100vh - 130px);
+    margin-bottom: 90px;
+    margin-top: 15px;
+  }
+  .slide {
+    position: relative;
+    height: auto;
+    transform: none !important;
+  }
+  .editorial-panel {
+    padding: 30px 20px;
+  }
+  
+  /* Flexibilizar grades editoriais */
+  .grid-2col, .grid-3col, .grid-asymmetric-right, .grid-editorial-split, .flip-grid, .budget-straight-container {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 16px;
+  }
+  
+  .grid-editorial-split > :first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--color-grey-medium);
+    padding-right: 0;
+    padding-bottom: 24px;
+  }
+  
+  .grid-editorial-split > :last-child {
+    padding-left: 0;
+    padding-top: 8px;
+  }
+  
+  .timeline-dashed-line {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .timeline-dashed-line::before {
+    display: none;
+  }
+  .timeline-dashed-node {
+    flex-direction: row;
+    text-align: left;
+    gap: 16px;
+  }
+  
+  /* Controles UI Inferiores fixos */
+  .ui-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-black);
+    padding: 16px;
+    backdrop-filter: none;
+    border-top: 1px solid var(--color-grey-medium);
+    z-index: 20;
+  }
+  .slide-slogan {
+    display: none;
+  }
+  .ui-status {
+    gap: 8px;
+  }
+  .ui-indicator {
+    font-size: 1.15rem;
+  }
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .keyboard-helper {
+    display: none;
+  }
+}
+
+/* Poster Cover Slide Styling (Inspired by SABAR Poster) */
+.poster-cover {
+  background-color: #000000 !important;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Gritty noise texture overlay */
+.poster-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0),
+                    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Vignette overlay for dark, textured focus */
+.poster-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.poster-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  gap: 15px;
+}
+
+.stretched-text-line {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 0.7;
+  letter-spacing: -2px;
+  font-size: clamp(4rem, 11vw, 8.5rem);
+  transform: scaleY(2.6); /* High-end vertical stretch */
+  margin: 45px 0; /* Breathing margin for scaled text */
+  display: inline-block;
+  transform-origin: center;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  font-stretch: extra-condensed;
+}
+
+.stretched-text-line.highlight-yellow {
+  color: var(--color-neon-yellow);
+}
+
+.poster-footer {
+  position: absolute;
+  bottom: 40px;
+  font-family: var(--font-family-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  z-index: 4;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.poster-footer:hover {
+  color: var(--color-neon-yellow);
+  letter-spacing: 4px;
+}
+
+@media (max-width: 900px) {
+  .stretched-text-line {
+    font-size: clamp(3rem, 14vw, 5.5rem);
+    transform: scaleY(2.2);
+    margin: 30px 0;
+  }
+}

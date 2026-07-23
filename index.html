@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apresentação Oficial do Ex Devedor: Vencendo os Boletos. Educação financeira comportamental, simples e prática.">
+  <title>Ex Devedor - Palestra Oficial</title>
+  <!-- Google Fonts: Oswald (títulos condensados pesados) e Inter (texto de leitura legível) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Top Progress Bar (Nike style solid slim indicator) -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- App Wrapper -->
+  <main class="app-container">
+    
+    <!-- Slides Container -->
+    <div class="slides-wrapper" id="slides-container">
+      <!-- Injeção dos slides via JS -->
+    </div>
+
+    <!-- UI Overlay Controls (Modern Bento/Editorial Style) -->
+    <div class="ui-controls">
+      <!-- Left side: Slogan -->
+      <div class="ui-status">
+        <span class="brand-text">EX DEVEDOR</span>
+        <span class="slide-slogan" id="slide-slogan">Dívidas não são resolvidas com dinheiro</span>
+      </div>
+
+      <!-- Center: Slide indicator -->
+      <div class="ui-indicator">
+        <span id="current-slide-num">01</span>
+        <span class="separator">/</span>
+        <span id="total-slides-num">30</span>
+      </div>
+
+      <!-- Right side: Nav Buttons -->
+      <div class="ui-nav">
+        <button class="nav-btn" id="prev-btn" aria-label="Slide anterior">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <button class="nav-btn" id="next-btn" aria-label="Próximo slide">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Keyboard Guide Floating Helper -->
+    <div class="keyboard-helper" id="keyboard-helper">
+      <span>Use <kbd>←</kbd> <kbd>→</kbd> para navegar</span>
+      <button class="close-helper" id="close-helper-btn">&times;</button>
+    </div>
+  </main>
+
+  <!-- Script Principal -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
