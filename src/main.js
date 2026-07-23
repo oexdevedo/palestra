@@ -76,8 +76,7 @@ const defaultSlidesData = [
     slogan: 'Minha História',
     html: `
       <div class="grid-editorial-split editorial-panel" style="padding: 0; background: var(--color-white); overflow: hidden; border-radius: 8px;">
-        <div style="background-color: #551122; background-image: url('./assets/quem_sou_eu_placeholder.jpg'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative;">
-            <div style="position: absolute; bottom: 20px; left: 20px; color: white; opacity: 0.5; font-size: 0.8rem;">[Adicione sua foto: public/assets/quem_sou_eu.jpg]</div>
+        <div style="background-color: #551122; background-image: url('./assets/quem_sou_eu.png'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative;">
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center; padding: 40px; gap: 30px; background-color: var(--color-white);">
           <h2 style="color: var(--color-dark); font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; margin-bottom: 20px;">Quem sou eu</h2>
@@ -111,11 +110,10 @@ const defaultSlidesData = [
       <div class="grid-editorial-split editorial-panel" style="gap: 40px;">
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                <div style="width: 60px; height: 60px; background-color: var(--color-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👨🏽‍💻</div>
+                <div style="width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="./assets/logo.png" style="width: 100%; height: 100%; object-fit: cover;"></div>
                 <h2 style="font-size: clamp(2rem, 4vw, 3rem);">A Ex Devedor</h2>
             </div>
-            <div style="background-image: url('./assets/a_ex_devedor_placeholder.jpg'); background-size: cover; background-position: center; border-radius: 8px; flex-grow: 1; min-height: 300px; background-color: #223344; display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="position: absolute; bottom: 20px; left: 20px; color: white; opacity: 0.5; font-size: 0.8rem;">[Adicione sua foto: public/assets/a_ex_devedor.jpg]</div>
+            <div style="background-image: url('./assets/a_ex_devedor.jpg'); background-size: cover; background-position: center; border-radius: 8px; flex-grow: 1; min-height: 300px; background-color: #223344; display: flex; align-items: center; justify-content: center; position: relative;">
             </div>
         </div>
         
