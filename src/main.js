@@ -764,16 +764,39 @@ const slideSloganText = document.getElementById('slide-slogan');
 const keyboardHelper = document.getElementById('keyboard-helper');
 const closeHelperBtn = document.getElementById('close-helper-btn');
 
-let currentSlideIndex = 0;
+function getSavedSlideIndex() {
+  const hash = window.location.hash;
+  if (hash) {
+    const match = hash.match(/#?(?:slide-)?(\d+)/i);
+    if (match) {
+      const parsedNum = parseInt(match[1], 10) - 1;
+      if (parsedNum >= 0 && parsedNum < slidesData.length) {
+        return parsedNum;
+      }
+    }
+  }
+  try {
+    const saved = localStorage.getItem('exdevedor_last_slide_index');
+    if (saved !== null) {
+      const parsed = parseInt(saved, 10);
+      if (!isNaN(parsed) && parsed >= 0 && parsed < slidesData.length) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Erro ao ler localStorage:', e);
+  }
+  return 0;
+}
+
+let currentSlideIndex = getSavedSlideIndex();
 
 // ==========================================================================
 // INICIALIZAÇÃO E MONTAGEM DOS SLIDES
 // ==========================================================================
 function initSlides() {
-  // Configura número total de slides
   totalSlidesNum.textContent = String(slidesData.length).padStart(2, '0');
 
-  // Injeta o HTML de cada slide no container
   slidesContainer.innerHTML = '';
   slidesData.forEach((slide, idx) => {
     const slideEl = document.createElement('section');
@@ -781,20 +804,17 @@ function initSlides() {
     slideEl.id = `slide-id-${slide.id}`;
     slideEl.innerHTML = slide.html;
     
-    // Se for o primeiro slide, marca como ativo
-    if (idx === 0) {
+    if (idx === currentSlideIndex) {
       slideEl.classList.add('active');
     }
     
     slidesContainer.appendChild(slideEl);
   });
 
-  // Gera o QR Code no slide 2 após a montagem do DOM
   setTimeout(generateQRCode, 100);
 
-  // Registra eventos
   setupEvents();
-  updateUI();
+  goToSlide(currentSlideIndex);
 }
 
 // ==========================================================================
@@ -807,8 +827,8 @@ function generateQRCode() {
       width: 210,
       margin: 1,
       color: {
-        dark: '#0a0b0d', // Cor escura do QR code
-        light: '#ffffff' // Fundo branco
+        dark: '#0a0b0d',
+        light: '#ffffff'
       }
     }, function (error) {
       if (error) console.error('Erro ao gerar QR Code:', error);
@@ -822,23 +842,29 @@ function generateQRCode() {
 function goToSlide(index) {
   if (index < 0 || index >= slidesData.length) return;
 
-  // Remove active do slide anterior
   const activeSlide = slidesContainer.querySelector('.slide.active');
   if (activeSlide) activeSlide.classList.remove('active');
 
-  // Atualiza index
   currentSlideIndex = index;
 
-  // Adiciona active ao novo slide
   const targetSlide = slidesContainer.querySelector(`.slide-index-${currentSlideIndex}`);
   if (targetSlide) {
     targetSlide.classList.add('active');
   }
 
-  // Efeitos de Dopamina / Gatilhos Comportamentais
-  triggerDopamineEffects();
+  // Persiste a posição atual no cache (localStorage)
+  try {
+    localStorage.setItem('exdevedor_last_slide_index', String(currentSlideIndex));
+  } catch (e) {
+    console.warn('Erro ao salvar posição no localStorage:', e);
+  }
 
-  // Atualiza UI
+  // Sincroniza o hash na URL (#slide-X) sem forçar reload
+  if (window.history && window.history.replaceState) {
+    window.history.replaceState(null, '', `#slide-${currentSlideIndex + 1}`);
+  }
+
+  triggerDopamineEffects();
   updateUI();
 }
 
@@ -981,6 +1007,14 @@ function setupEvents() {
       prevSlide(); // Arrastou para a direita -> Anterior
     }
   }
+
+  // Suporte a historico do navegador (Voltar/Avançar e mudancas de #slide-X)
+  window.addEventListener('hashchange', () => {
+    const targetIdx = getSavedSlideIndex();
+    if (targetIdx !== currentSlideIndex) {
+      goToSlide(targetIdx);
+    }
+  });
 }
 
 function initAdmin() {
