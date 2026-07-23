@@ -869,7 +869,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v6_add_history_slides';
+const SLIDES_VERSION = 'v7_add_real_images';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
