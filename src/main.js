@@ -859,8 +859,11 @@ const defaultSlidesData = [
             <a href="https://exdevedor.com" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">exdevedor.com</a>
           </div>
           <div class="editorial-card" style="padding: 30px; gap: 12px; align-items: flex-start;">
-            <h3 style="margin-bottom: 5px;">CONTATO</h3>
-            <span class="highlight-yellow" style="font-weight: 700; font-size: 1.1rem; font-family: var(--font-family-title); letter-spacing: 0.5px;">contato@exdevedor.com</span>
+            <h3 style="margin-bottom: 10px;">LINKS ÚTEIS</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <a href="#" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">➜ Fazer o Raio X</a>
+              <a href="https://wa.me/message/OEO7TXGUSIDJL1" target="_blank" class="highlight-yellow" style="text-decoration: none; font-weight: 700; font-size: 1.15rem; font-family: var(--font-family-title); letter-spacing: 1px;">➜ Chamar no WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>
@@ -869,7 +872,7 @@ const defaultSlidesData = [
 ];
 
 let slidesData = [];
-const SLIDES_VERSION = 'v7_add_real_images';
+const SLIDES_VERSION = 'v8_links_uteis';
 try {
   const savedVersion = localStorage.getItem('exdevedor_slides_version');
   const saved = localStorage.getItem('exdevedor_slides');
