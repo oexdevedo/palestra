@@ -1,0 +1,107 @@
+{
+  "name": "AnythingLLM Chat Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": "1.1",
+      "position": [
+        0,
+        0
+      ],
+      "id": "1e86a11e-2135-430c-99c5-e51c881c1543",
+      "name": "Entrada (Trigger)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5c70a25-e587-42f0-a352-87bbcdcf0b2f",
+              "name": "user_message",
+              "value": "Resuma os pontos principais do documento que enviei.",
+              "type": "string"
+            },
+            {
+              "id": "1894b918-ee63-46fb-b3e6-1b3ba718ef0e",
+              "name": "mode",
+              "value": "chat",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": "3.4",
+      "position": [
+        220,
+        0
+      ],
+      "id": "f85e492f-c57b-4d40-9602-53fa28a8d11c",
+      "name": "Configurar Pergunta"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3001/api/v1/workspace/SEU_SLUG_DO_WORKSPACE/chat",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer SUA_API_KEY_AQUI"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"message\": \"{{ $json.user_message }}\",\n  \"mode\": \"{{ $json.mode }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": "4.2",
+      "position": [
+        440,
+        0
+      ],
+      "id": "d040a45d-cf48-4e3a-921d-9e6b528becc8",
+      "name": "API AnythingLLM"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Entrada (Trigger)": {
+      "main": [
+        [
+          {
+            "node": "Configurar Pergunta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configurar Pergunta": {
+      "main": [
+        [
+          {
+            "node": "API AnythingLLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
